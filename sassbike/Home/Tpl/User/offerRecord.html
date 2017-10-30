@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="shareBike">
+    <meta name="author" content="sun">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes">
+
+    <title>供车记录</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-collapse-xs navbar-expand-md fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="__APP__/Index/index">RIDER</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon fa fa-bars"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" >
+                        <a class="nav-link nav-no-link" href="#">欢迎：<{$_SESSION['nickName']}></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="__APP__/Index/index">首页</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" href="#" id="pCenter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 个人中心 </a> 
+
+                        <div class="dropdown-menu" aria-labelledby="pCenter"> 
+                            <a class="dropdown-item" href="__APP__/User/personInfo">个人信息</a> 
+                            <a class="dropdown-item" href="__APP__/User/borrowRecord">借车记录</a> 
+                            <a class="dropdown-item" href="__APP__/User/offerRecord">供车记录</a> 
+                        </div> 
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="__APP__/Bike/offerBike">供车</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="__APP__/User/do_LoginOut">退出</a>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="user-panl">
+        <div class="container">
+             <form method="GET" action="#">
+                <div class="form-group">
+                    <img class="user-img" src="__ROOT__/Uploads/headPhotos/<{$_SESSION['userId']}>/<{$userPhoto}><{$userExt}>"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <?php
+        $offerState=Array('未借出','已借出','已还车','已停供');  
+        $empty='<div class="empty">没有任何记录！</div>';
+    ?>
+    <div class="user-content-panl">
+
+        <div class="bike-list">
+            <div class="container"> 
+                <!-- <h2><i class="fa fa-motorcycle"></i>供车记录</h2> -->
+                <div class="bikeLinks">
+                    <div class="bikeLink-content row">
+                        <lable class="col-2">
+                            <a href="__URL__/offerRecord?offerState=0" id="allBike" class="offerkind">所有车</a>
+                        </lable>
+                        <lable class="col-2">
+                            <a href="__URL__/offerRecord?offerState=1" id="notBorrow" class="offerkind">未借出</a>
+                        </lable>
+                        <lable class="col-2">
+                            <a href="__URL__/offerRecord?offerState=2" id="hasBorrow" class="offerkind">已借出</a>
+                        </lable>
+                        <lable class="col-2">
+                            <a href="__URL__/offerRecord?offerState=3" id="hadBack" class="offerkind">已还车</a>
+                        </lable>
+                        <lable class="col-2">
+                            <a href="__URL__/offerRecord?offerState=4" id="hadStop" class="offerkind">已停供</a>
+                        </lable>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row"> 
+                    <volist name="bikeInfo" id="bikeInfo" empty="$empty">
+                        <div class="col-sm-6 col-md-6 col-lg-3">    
+                            <div class="card">
+                                <img class="card-img-top" src="__ROOT__/Uploads/bikeImgs/<{$_SESSION['userId']}>/<{$bikeInfo.bikeImg}><{$bikeInfo.bikeExtension}>" alt="车辆照片">
+                                <div class="card-body">
+                                    <!-- <h5 class="card-title">供车信息</h5> -->
+                                   
+                                    <div class="card-text">
+                                        <label class="col-form-label">车辆品牌：</label>
+                                        <label><{$bikeInfo.brand}></label><br/>
+
+                                       
+                                        <!-- 未借出 -->
+                                        <?php
+                                            if($bikeInfo[offerState]==0){
+                                        ?>
+                                        <label class="col-form-label">车辆状态：</label>
+                                        <label class="fontRed"><{$offerState[$bikeInfo[offerState]]}></label><br/>
+
+                                        <label class="col-form-label">供车时间：</label>
+                                        <label><{$bikeInfo.offerTime}></label><br/>
+
+                                        <!-- 已借出 -->
+                                        <?php
+                                            }elseif($bikeInfo[offerState]==1){
+                                        ?>
+                                        <label class="col-form-label">车辆状态：</label>
+                                        <label class="fontGreen"><{$offerState[$bikeInfo[offerState]]}></label><br/>
+
+                                        <label class="col-form-label">供车时间：</label>
+                                        <label><{$bikeInfo.offerTime}></label><br/>
+
+                                        <!-- 已还车 -->
+                                        <?php
+                                            }elseif($bikeInfo[offerState]==2){
+                                        ?>
+                                        <label class="col-form-label">车辆状态：</label>
+                                        <label class="fontBlack"><{$offerState[$bikeInfo[offerState]]}></label><br/>
+
+                                        <label class="col-form-label">供车时间：</label>
+                                        <label><{$bikeInfo.offerTime}></label><br/>
+
+                                        <!-- 已停供 -->
+                                        <?php
+                                            }elseif($bikeInfo[offerState]==3){
+                                        ?>
+                                        <label class="col-form-label">车辆状态：</label>
+                                        <label class="fontBlue"><{$offerState[$bikeInfo[offerState]]}></label><br/>
+
+                                        <label class="col-form-label">停供时间：</label>
+                                        <label><{$bikeInfo.stopOfferTime}></label><br/>
+                                        <?php
+                                            }
+                                        ?>
+                                    </div>
+
+                                    <!-- 未借出 -->
+                                    <?php
+                                        if($bikeInfo[offerState]==0){   
+                                    ?>
+                                    <a href="__APP__/User/moreOfferInfo?offerId=<{$bikeInfo.offerId}>" id="moreBtn" class="btn btn-red not-borrowed">详情<i class="fa fa-angle-double-right"></i></a>
+
+                                    <!-- 已借出 -->
+                                    <?php
+                                        }elseif($bikeInfo[offerState]==1){   
+                                    ?>
+                                    <a href="__APP__/User/moreOfferInfo?offerId=<{$bikeInfo.offerId}>" id="moreBtn" class="btn btn-green not-borrowed">详情<i class="fa fa-angle-double-right"></i></a>
+                                    
+                                    <!-- 已还车 -->
+                                    <?php
+                                        }elseif($bikeInfo[offerState]==2){ 
+                                    ?>
+                                     <a href="__APP__/User/moreOfferInfo?offerId=<{$bikeInfo.offerId}>" id="moreBtn" class="btn btn-black not-borrowed">详情<i class="fa fa-angle-double-right"></i></a>
+                                    
+                                    <!-- 已停供 -->
+                                     <?php
+                                        }elseif($bikeInfo[offerState]==3){ 
+                                    ?>
+                                    <a href="__APP__/User/moreOfferInfo?offerId=<{$bikeInfo.offerId}>" id="moreBtn" class="btn btn-blue not-borrowed">详情<i class="fa fa-angle-double-right"></i></a>
+                                    <?php
+                                        }
+                                    ?>
+
+                                </div>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+
+                <!-- 分页开始-->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <{$page}>
+                    </ul>
+                </nav>
+                <!-- 分页结束-->
+
+            </div>             
+        </div>
+    </div>
+
+    <!-- 尾部开始-->
+    <div class="footer">
+        <div class="footer_content">
+            <p class="power">&copy;请勿侵权</p>
+            <p>友情链接
+                <a href="#">ofo小黄车</a>
+                <a href="#">摩拜单车</a>
+            </p>
+        </div>
+    </div>
+    <!-- 尾部结束-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="__PUBLIC__/js/jquery-3.2.1.min.js"></script>
+    <!-- <script src="__PUBLIC__/js/server.js"></script> -->
+    <script src="__PUBLIC__/js/common.js"></script>
+    <!-- <script src="__PUBLIC__/js/jquery-3.2.1.slim.js"></script> -->
+    <script src="__PUBLIC__/js/tether.min.js"></script>
+    <script src="__PUBLIC__/js/popper.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            
+            $('#moreBtn').click(function(){
+                var bikeId="<?php echo $bikeInfo['bikeId'];?>";
+                var url='__URL__/do_moreInfo';
+                $.get(url,{id:bikeId},function(data){
+                    alert(data);
+                })
+            })
+
+            var url = window.location.search;
+            var borrowState = url.substring(url.lastIndexOf('=')+1, url.length);
+          
+            if(borrowState==0){
+                $("#allBike").addClass("active");
+                $("#notBorrow").removeClass("active");
+                $("#hasBorrow").removeClass("active");
+                $("#hadBack").removeClass("active");
+                $("#hadStop").removeClass("active");
+                
+            }else if(borrowState==1){  
+                $("#notBorrow").addClass("active"); 
+                $("#allBike").removeClass("active");
+                $("#hasBorrow").removeClass("active");
+                $("#hadBack").removeClass("active");
+                $("#hadStop").removeClass("active");
+                
+            }else if(borrowState==2){  
+                $("#hasBorrow").addClass("active");
+                $("#notBorrow").removeClass("active");
+                $("#allBike").removeClass("active");
+                $("#hadBack").removeClass("active");
+                $("#hadStop").removeClass("active");
+                
+            }else if(borrowState==3){
+                $("#hadBack").addClass("active");
+                $("#notBorrow").removeClass("active");
+                $("#hasBorrow").removeClass("active");
+                $("#allBike").removeClass("active");
+                $("#hadStop").removeClass("active");
+               
+            }else if(borrowState==4){
+                $("#hadStop").addClass("active");
+                $("#notBorrow").removeClass("active");
+                $("#hasBorrow").removeClass("active");
+                $("#hadBack").removeClass("active");
+                $("#allBike").removeClass("active");
+               
+            }
+   
+        })
+
+    </script>
+</body>
+</html>

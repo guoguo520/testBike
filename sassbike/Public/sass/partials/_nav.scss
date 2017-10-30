@@ -1,0 +1,48 @@
+.navbar{
+	background: $color-purple;
+	opacity: .85;
+	
+	.navbar-brand{
+		color:$color-bg;
+		font-size: 1.5rem;
+		font-weight: $font-bold;
+		padding-top: 0.5rem; 
+	}
+	
+	.navbar-nav .nav-link{
+		color: $color-bg;
+		margin-left: 6px;
+		font-weight: $font-light;
+		padding-left: 0.8rem;
+		padding-right: 0.8rem;
+		@include border-radius(4px);
+
+		&:hover{
+			background:$color-bg;
+			color:$color-purple;
+		}
+		
+	}
+	.navbar-nav .nav-action{
+		background:$color-bg;
+		cursor: default;
+		color: $color-purple;
+		font-weight: $font-bold; 
+	}
+	.navbar-nav .nav-no-link:hover{
+		background: $color-purple;
+		color:$color-bg;
+		cursor: default;
+	}
+
+	.navbar-toggler{
+		box-shadow: 0 0 3px #eee;
+		right: 0px;
+
+		.navbar-toggler-icon{
+			color:#fff;
+			padding-top: 0.3rem;
+		}
+	}
+}
+

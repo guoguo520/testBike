@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="shareBike">
+	<meta name="author" content="sun">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="yes">
+
+	<title>用户列表</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet">
+	<link href="__PUBLIC__/css/font-awesome.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="__PUBLIC__/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav class="admin-nav navbar navbar-collapse-xs navbar-expand-md">
+		<div class="container">
+			<a class="navbar-brand" href="__APP__/User/UserList">
+			<i class="fa fa-map-marker"></i>后台管理系统</a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon fa fa-bars"></span>
+		    </button>
+
+		   	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item" >
+				  		<a class="nav-link nav-no-link" href="#">欢迎：<{$_SESSION['adminNum']}></a>
+				  	</li>
+				  	
+				  	<li class="nav-item">
+				  		<a class="nav-link" href="__APP__/Index/do_adminLoginOut">退出</a>
+				  	</li>
+				</ul>
+		 	</div>
+		</div>
+	</nav>
+	
+	<div class="info-panl container-fluid">
+		<div class="row">
+			<div class="col-lg-2  text-center">
+				<div id="admin-nav" data-children=".item">
+					<div class="item">
+					    <a class="nav-title active-title" data-toggle="collapse" data-parent="#admin-nav" href="#user-nav" aria-expanded="true" aria-controls="user-nav">
+					      	 <i class="fa fa-user"></i>用户管理
+					    </a>
+					    <div id="user-nav" class="collapse show" role="tabpanel">
+				       		<ul class="mb-3">
+				       			<li>
+				       		 		<a class="nav-a active" href="__APP__/User/userList">
+				       		 			用户列表
+				       		 		</a>
+				       		 	</li>
+				       		 	<li>
+				       		 		<a class="nav-a" href="__APP__/User/addUser">
+				       		 			添加用户
+				       		 		</a>
+					       		 </li>
+				       		</ul>
+					    </div>
+					</div>
+
+					<div class="item">
+					    <a class="nav-title" data-toggle="collapse" data-parent="#admin-nav" href="#bike-nav" aria-expanded="false" aria-controls="bike-nav">
+					     	<i class="fa fa-truck"></i>车辆管理
+					    </a>
+					    <div id="bike-nav" class="collapse" role="tabpanel">
+					      	<ul class="mb-3">
+					      		<li>
+					       		 	<a class="nav-a" href="__APP__/Bike/bikeList">
+					       		 		车辆列表
+					       		 	</a>
+				       		 	</li>
+				       		 	<li>
+				       		 		<a class="nav-a" href="__APP__/Bike/addBike">
+				       		 			添加车辆
+				       		 		</a>
+				       		 	</li>
+				       		</ul>
+					    </div>
+	  				</div>
+
+	  				<div class="item">
+					    <a class="nav-title" data-toggle="collapse" data-parent="#admin-nav" href="#news-nav" aria-expanded="false" aria-controls="news-nav">
+					     	<i class="fa fa-bell"></i></i>公告管理
+					    </a>
+					    <div id="news-nav" class="collapse" role="tabpanel">
+					      	<ul class="mb-3">
+					      		<li>
+					       		 	<a class="nav-a" href="__APP__/News/newsList">
+					       		 		公告列表
+					       		 	</a>
+				       		 	</li>
+				       		 	<li>
+					       		 	<a class="nav-a" href="__APP__/News/addNews">
+					       		 		添加公告
+					       		 	</a>
+				       		 	</li>
+				       		</ul>
+					    </div>
+	  				</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-10">
+				<div id="infoDiv" class="info-content">
+					<div class="offer-panl">
+						<div class="container">
+					        <form class="offer-form" action="__URL__/do_alterUser" method="post" enctype="multipart/form-data">
+					        	<!-- <h3 class="form-head">修改用户信息</h3> -->
+				            	<div class="form-group col-md-6">
+				                    <label for="rTelInput" class="col-form-label">用户名：</label>
+				                    <input type="text" readonly class="form-control-plaintext" id="username" name="username" value="<{$userInfo.username}>">
+				                </div>
+
+				                <div class="form-group col-md-6">
+				                    <label for="nickName" class="col-form-label">昵称：</label>
+				                    <input type="text" class="form-control" id="nickName" name="nickName" value="<{$userInfo.nickName}>">
+				                </div>
+
+								<div class="form-group col-md-6">
+		                            <label class="col-form-label">性&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+		                            <div class="form-check form-check-inline">
+		                                <label class="form-check-label">
+		                                    <input class="form-check-input" type="radio" name="sex" id="boy" value="m"> 男
+		                                </label>
+		                            </div>
+		                            <div class="form-check form-check-inline">
+		                                <label class="form-check-label">
+		                                    <input class="form-check-input" type="radio" name="sex" id="girl" value="f"> 女
+		                                </label>
+		                            </div>
+		                        </div>
+
+		                        <div class="form-group col-md-6">
+		                            <label for="phone" class="col-form-label">手机号：</label>
+		                            <input type="tel" class="form-control" id="phone" name="phone" value="<{$userInfo.phone}>">
+		                        </div>
+		                        <div class="form-group col-md-6">
+		                        	<button type="submit" class="btn btn-purple">立即修改</button>
+		                    	</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+	<script src="__PUBLIC__/js/jquery-3.2.1.min.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+    <script src="__PUBLIC__/js/jquery-3.2.1.slim.js"></script>
+    <script src="__PUBLIC__/js/tether.min.js"></script>
+    <script src="__PUBLIC__/js/popper.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    	var sex="<{$userInfo.sex}>";
+    	if(sex==0){
+    		$('#boy').attr("checked",true);
+    	}else if(sex==1){
+    		$('#girl').attr("checked",true);
+    	}
+    	
+    </script>
+	
+</body>
+</html>

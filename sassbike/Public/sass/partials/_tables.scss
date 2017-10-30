@@ -1,0 +1,36 @@
+.table thead th{
+	font-weight: $font-bold;
+	text-transform: uppercase;
+}
+
+.pricing-table{
+	margin: 60px 0;
+
+	.btn{
+		@include border-radius(2px);
+	}
+
+	.table-hover tbody tr:hover{
+		background: #78379d;
+		color:#fff;
+	}
+}
+
+// 管理员界面
+.info-content{
+	.table{
+		border: 1px solid #ddd;
+	}
+	.table th{
+		font-weight: $font-bold;
+	}
+	.table td {
+		font-weight: $font-light;
+	}
+	.table th, .table td {
+	    border-top: 1px solid #dcf;
+	    text-align: center;
+
+	}
+
+}

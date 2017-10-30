@@ -1,0 +1,122 @@
+small{
+	color: #999;
+}
+
+.col-form-label {
+    color: purple;
+}
+.form-box{
+	overflow: hidden;
+	padding:20px;
+	background: #f7f7f9;
+	@include border-radius(4px);
+
+	h3{
+		font-size: 36px;
+		list-style: 48px;
+		font-weight: $font-bold;
+
+	}
+
+	p{
+		color: #636c27
+	}
+
+	.btn-green{
+		font-size: 18px;
+		line-height: 27px;
+		@include border-radius(2px);
+	}
+
+	.form-group:last-child{
+		margin-top: 1.5rem;
+	}
+}
+
+.form-group{
+	margin-bottom: 1.5rem;
+	
+	.kindLable{
+		width: 26%;
+		text-align: right;
+	}
+	.inpLable{
+		width: 60%;
+	}
+	.smallLable{
+		margin-left: 27%;
+	}
+}
+
+.form-control-label{
+	font-weight: $font-bold;
+}
+
+.form-control{
+	// line-height: 1.8rem;
+	// border: 1px solid #999;
+	box-shadow: 0 0 1px #999;
+}
+
+.form-control-wrong{	//输入格式错误是
+	box-shadow:0 0 2px red;
+	border: 1px solid red;
+}
+.form-control-correct{
+	box-shadow:0 0 2px green;
+	border: 1px solid green;
+}
+.help-wrong{
+	color:red;
+}
+.help-correct{
+	color:green;
+}
+
+.user-content-panl{
+	.alt-user-img{
+		max-height: 300px;
+		min-height: 200px;
+		width: 100%;
+		margin-top: 6%;
+		overflow: hidden;
+		text-align: center;
+		box-shadow:0 0 2px 1px #333;
+
+		.person-img{
+			width: 100%;
+		}
+	}
+
+	.fileBtn{
+		width: 100%;
+		height: 50%;
+		position: absolute;
+		cursor: pointer;
+		margin-top: -57%;
+		opacity: 0;	
+		
+	}
+	.saveBtn{
+		margin-top: 10px;
+		width: 100%;
+	}
+	
+	.info-form{
+		padding:10px;
+		background: #fff;
+		overflow: hidden;
+		
+		.form-control{
+			width: 180px;
+			display: inline-block;
+			height: 40px;
+		}
+
+		.btn-purple{
+			width: 100%;
+		}
+	}
+
+}
+

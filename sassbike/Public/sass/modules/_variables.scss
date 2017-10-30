@@ -1,0 +1,35 @@
+// BASICS
+$font-family:Helvetice,sans-serif;
+$font-size:1rem;
+
+$line-height:$font-size*1.5;
+
+$font-h2:$font-size*3;
+
+$font-bold:500;
+$font-light:300;
+$font-red:#990000;
+$font-green:green;
+$font-black:#333;
+$font-blue:blue;
+/*COLOR*/
+$color-bg:#fff;
+$color-bg-black:#444;
+$color-font:#1b1b1b;
+
+// $color-purple:#78379d;
+$color-purple:#333;
+$color-white:#fff;
+$color-black:#333;
+$color-red:#990000;
+$color-blue:blue;
+
+// fileUpload
+$custom-file-text: (
+  placeholder: (
+    en: "选择的头像是。。。"
+  ),
+  button-label: (
+    en: "更改"
+  )
+)

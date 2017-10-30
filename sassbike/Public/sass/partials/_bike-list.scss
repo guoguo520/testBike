@@ -1,0 +1,109 @@
+.fontRed{	//红色字体
+	color:$font-red;
+	font-weight: $font-bold;
+}
+.fontGreen{
+	color:$font-green;
+	font-weight: $font-bold;
+}
+.fontBlack{	//黑色字体
+	color:$font-black;
+	font-weight: $font-bold;
+}
+.fontBlue{	//蓝色字体
+	color:$font-blue;
+	font-weight: $font-bold;
+}
+.borrowBikeList{
+	padding-top: 20px;
+}
+.bike-list{
+	// padding: 20px 0;
+	text-align: center;
+	min-height: 400px;
+
+	.col-4{
+		padding: 0;
+		width:30%;
+	}
+	
+	.col-2{
+		padding: 0;
+		width:20%;
+		flex: 0 0 20%;
+		max-width: 20%;
+	}
+	.card{
+		background: #fff;
+		text-align: center;
+		margin-bottom: 20px;
+		border: 1px solid transparent;
+		padding: 10px;
+
+		.card-img-top {
+		    height: 160px;
+		    background: #fff;
+		}
+
+		.row{
+			margin-bottom: 10px;
+		}
+	}
+
+	.card-title{
+		color:$color-purple;
+		padding: 5px;
+		font-weight: $font-bold;
+		border-bottom: 1px solid $color-purple;
+	}
+
+	.card-text{
+		color:$color-purple;
+		//padding: 0 10px 10px;
+		text-align: left;
+	}
+
+	.bikeState{
+		color:purple;
+	}
+
+	.btn-purple{
+		display: block;
+
+		@include responsive(lg){
+			overflow: hidden;
+			text-overflow:ellipsis;
+		}
+
+		@include responsive(sm){
+			overflow: hidden;
+			text-overflow:ellipsis;
+		}
+	}
+
+	.has-repay{
+		display: none;
+	}
+
+	.has-borrowed{
+		display: none;
+	}
+
+	// 车辆详情
+	.moreBike-img{
+		width: 100%;
+		overflow: hidden;
+
+		img{
+			width: 100%;
+		}
+	}
+}
+
+.empty{
+	height: 300px;
+	width:100%;
+	text-align: center;
+	line-height: 300px;
+	font-size: 30px;
+}

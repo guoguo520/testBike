@@ -1,0 +1,73 @@
+
+.btn-green{
+	border: 1px solid #379d60;
+	background: transparent;
+	color: #379d60;
+	width: 100%;
+	margin-top: 10px;
+
+	&:hover{
+		background: #268d4f;
+		color: #fff;
+	}
+}
+
+.btn-purple{
+	border: 1px solid $color-purple;
+	background: transparent;
+	color: $color-purple;
+	width: 100%;
+	margin-top: 10px;
+
+	&:hover{
+		background: $color-purple;
+		color: #fff;
+		cursor: pointer;
+	}
+
+}
+
+.btn-red{
+	border: 1px solid $color-red;
+	background: transparent;
+	color: $color-red;
+	width: 100%;
+	margin-top: 10px;
+
+	&:hover{
+		background: $color-red;
+		color: #fff;
+		cursor: pointer;
+	}
+
+}
+
+.btn-black{
+	border: 1px solid $color-black;
+	background: transparent;
+	color: $color-black;
+	width: 100%;
+	margin-top: 10px;
+
+	&:hover{
+		background: $color-black;
+		color: #fff;
+		cursor: pointer;
+	}
+
+}
+
+.btn-blue{
+	border: 1px solid $color-blue;
+	background: transparent;
+	color: $color-blue;
+	width: 100%;
+	margin-top: 10px;
+
+	&:hover{
+		background: $color-blue;
+		color: #fff;
+		cursor: pointer;
+	}
+
+}

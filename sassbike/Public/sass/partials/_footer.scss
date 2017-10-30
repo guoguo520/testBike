@@ -1,0 +1,14 @@
+.footer{
+	height: 160px;
+	text-align: center;
+	background: $color-purple;
+
+	.footer_content{
+		padding: 40px;
+		color:$color-bg;
+	}
+	.footer_content a{
+		color:greenyellow;
+		margin-left: 10px;
+	}
+}

@@ -1,0 +1,19 @@
+.custom-file-input {
+    cursor: pointer;
+}
+
+.custom-file-control {
+	@each $lang, $text in map-get($custom-file-text, placeholder) {
+	    &:lang(#{$lang}):empty::after {
+	      content: $text;
+	    }
+	}
+
+	@each $lang, $text in map-get($custom-file-text, button-label) {
+	    &:lang(#{$lang})::before {
+	      content: $text;
+	    }
+  	}
+	
+}
+

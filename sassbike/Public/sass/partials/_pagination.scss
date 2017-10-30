@@ -1,0 +1,40 @@
+.pagination{
+	padding-left: auto;
+	margin-left: 50%;
+
+	.page-link{
+		color:$color-purple;
+	}
+	
+	.page-item.active .page-link{
+		background-color: $color-purple;
+		border-color: $color-purple;
+	}
+
+    @include responsive(xl){
+		transform: translateX(-10%);
+	}
+
+	@include responsive(lg){
+		transform: translateX(-14%);
+	}
+	
+	@include responsive(md){
+		transform: translateX(-15%);
+	}
+
+	@include responsive(sm){
+		transform: translateX(-20%);
+	}
+
+	@include responsive(xs){
+		transform: translateX(-30%);
+	}
+
+	@include responsive(xxs){
+		transform: translateX(-60%);
+	}
+	
+
+	
+}
