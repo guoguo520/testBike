@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="col-md-8">
-                     <form class="info-form" action="__URL__/do_saveInfo" method="post">
+                     <form class="info-form">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item row">
                             <label for="userName" class="col-form-label">用户名：</label>
@@ -129,7 +129,7 @@
                         </li>
                     </ul>
                 
-                    <input type="submit" class="btn btn-purple" value="保存修改">
+                    <input id="saveInfoBtn" type="button" class="btn btn-purple" value="保存修改">
                
                 </form>
                 </div>
@@ -172,7 +172,25 @@
             else{
                 $('#boy').prop("checked",true);
             }
-        })
+
+            $('#saveInfoBtn').click(function(e){
+                e.preventDefault();
+
+                var nickName=$('#otherName').val();
+                var sex=$('input[name="sex"]:checked ').val();
+                var phone=$('#phone').val();
+                var url='__URL__/do_saveInfo';
+                $.post(url,{
+                    nickName:nickName,
+                    sex:sex,
+                    phone:phone
+                },function(data){
+                    alert(data.info);
+                    window.location.reload();
+                });
+
+            });
+        });
 
 
     </script>

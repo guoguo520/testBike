@@ -1,34 +1,3 @@
-//登录判断开始
-// $(document).ready(function(){ 
-
-//      // Getting the kittens cookie: 
-//      var str = $.cookie("kittens"); 
-
-//      // str now contains "Seven Kittens" 
-//  });
-//登录判断结束
-//一、查看最新公告详情开始
-// jQuery(document).ready(function($){
-//     //首页查看公告详情开始
-//     var $moreInfo=$('a.more-info');
-//     var $content=$('.news-info');
-//     $content.hide();
-//     for(var i=0;i<$moreInfo.length;i++){
-//         $moreInfo.eq(i).click(function(event){
-//             event.preventDefault();
-//             var $link=$(this);
-//             $link.next().slideToggle('slow');
-//             if($link.text()=='详情'){
-//                 $link.text('关闭');
-//             }
-//             else{
-//                 $link.text('详情');
-//             }
-//         })
-//     }
-//     //首页查看公告详情结束
-// }),
-
 
 jQuery.myExtend={
     server:function(id){  
@@ -323,42 +292,6 @@ jQuery(document).ready(function($){
    
 
 });
-    //3、检查手机号格式函数
-    // function checkPhone(phone){
-    //     var lastNode=phone.nextSibling;
-    //     if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone.value))||(phone.value.length<11)){
-    //         if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone.value))&&(phone.value.length<11)){
-    //             if(lastNode.nodeName=='SMALL'){
-    //                 phone.parentNode.removeChild(lastNode);
-    //             }
-    //             var helpNode=createElement('small','手机号前七位错误！且不是完整的11位！','text-danger');
-    //         }
-    //         else if(phone.value.length<11){
-    //             if(lastNode.nodeName=='SMALL'){
-    //                 phone.parentNode.removeChild(lastNode);
-    //             }
-    //             var helpNode=createElement('small','不是完整的11位手机号！','text-danger');
-    //         }
-    //         else{
-    //             if(lastNode.nodeName=='SMALL'){
-    //                 phone.parentNode.removeChild(lastNode);
-    //             }
-    //             var helpNode=createElement('small','手机号前七位错误！','text-danger');
-    //         }
-
-    //         insertAfter(helpNode,phone);
-    //         phone.focus();
-    //         return false;
-    //     }
-    //     else{
-    //         if(lastNode.nodeName=='SMALL'){
-    //             phone.parentNode.removeChild(lastNode);
-    //         }
-    //         var helpNode=createElement('small','手机号格式正确！','text-success');
-    //         insertAfter(helpNode,phone);
-    //     }
-    // }
-    //原生js判断手机号格式是否正确结束
 
 jQuery(document).ready(function($){
 

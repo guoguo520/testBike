@@ -114,23 +114,12 @@ class IndexAction extends Action {
                }
           }
 
-         
-          // var_dump($bikeInfos);
-          $this->assign('bikeInfo',$bikeInfos);    
-          $this->assign('page',$page);  //赋值分页输出
-
           $this->ajaxReturn(1,$propKey,1);
      }
 
      public function moreBikeInfo(){
-          //头像
           $m=M('User');
-          // $where['username']=$_SESSION['username'];
-          // $userPhoto=$m->where($where)->getField('headPhoto',1);
-          // $userExt=$m->where($where)->getField('extension',1);
-          // $this->assign('userPhoto',$userPhoto);
-          // $this->assign('userExt',$userExt);
-
+     
           //车辆信息
           $offerId=$_GET['offerId']; 
           $offer=M('Offer_record');
@@ -162,14 +151,16 @@ class IndexAction extends Action {
           $nickName=$m->where($userWhere)->getField('nickName',1);
           $data[0]['nickName']=$nickName;
             
-          // var_dump($data);
           $this->assign('bikeInfo',$data);
           $this->display(); 
     }
 
     public function do_borrowBike(){
-          if(!$_SESSION['nickName']){
-               $this->redirect('__APP__/User/login');
+          if(!$_SESSION['userId']){
+               $url=__APP__.'/User/login';
+               $data['newUrl'] = $url;
+              
+               $this->ajaxReturn($data,"请登录后借车！",1);
           }
           else{
                $offerId=$_GET['offerId'];
@@ -194,7 +185,7 @@ class IndexAction extends Action {
                $bikeInfo['borrowId']=$borrow->max('borrowId'); 
                $i=$offer->where($where)->save($bikeInfo); 
                
-               $url=__URL__.'/borrowBike';
+               $url=__URL__.'/index';
                $data['newUrl'] = $url;
                if($i){
                     $this->ajaxReturn($data,"借车成功！",1);

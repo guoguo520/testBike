@@ -89,7 +89,7 @@
 	     		$userInfo['offerCount']=$offerCount;
 
 	     		$borrow=M('Borrow_record');
-	     		//供车次数
+	     		//借车次数
 	     		$borrowCount=$borrow->where('userId='.$userId)->count();
 	     		$userInfo['borrowCount']=$borrowCount;
 
@@ -125,10 +125,12 @@
 				// 根据条件保存修改的数据
 				$i=$m->where($where)->save($data); 
 				if($i>0){
-					$this->success('修改成功！');
+					// $this->success('修改成功！');
+					$this->ajaxReturn($i,'修改成功！',1);
 				}
 				else{
-					$this->error('修改失败！');
+					// $this->error('修改失败！');
+					$this->ajaxReturn(0,'修改失败！',0);
 				}
 			}
 	    }

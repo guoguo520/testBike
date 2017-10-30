@@ -189,8 +189,14 @@
 				var id='<{$bikeInfo.offerId}>';
 				var url='__URL__/do_borrowBike';
 				$.get(url,{offerId:id},function(data){
-					alert(data.info);
-					window.location=data.data.newUrl;
+                    if(data.info=="借车成功！"){
+                        alert(data.info);
+                        window.location=data.data.newUrl;
+                    }
+					else{
+                        alert(data.info);
+                        window.location=data.data.newUrl;
+                    }
 				});
 			});
 		})
